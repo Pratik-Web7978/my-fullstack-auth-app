@@ -1,0 +1,85 @@
+/* Fullscreen background image */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('/src/assets/pool-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Centering the form */
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  background: url('/cafe-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Glassmorphism card */
+.login-box {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: white;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Form elements */
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.login-box input::placeholder {
+  color: #ccc;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #0044cc;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #003399;
+}
+
+.login-box .links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-box .links a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.login-box .links a:hover {
+  text-decoration: underline;
+}

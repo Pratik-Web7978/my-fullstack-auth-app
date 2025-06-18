@@ -58,6 +58,39 @@
 
 // module.exports = router;
 
+// const express = require("express");
+// const router = express.Router();
+// const User = require("../models/User");
+// const bcrypt = require("bcryptjs");
+
+// // POST /api/login
+// router.post("/login", async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+//     console.log("📥 Login attempt:", email);
+
+//     // 1. Check if user exists
+//     const user = await User.findOne({ email });
+//     if (!user) {
+//       return res.status(400).json({ message: "Invalid email or password." });
+//     }
+
+//     // 2. Compare entered password with hashed password
+//     const isMatch = await bcrypt.compare(password, user.password);
+//      console.log("🔍 Password match:", isMatch); 
+//     if (!isMatch) {
+//       return res.status(400).json({ message: "Invalid email or password." });
+//     }
+
+//     // ✅ Success
+//     res.status(200).json({ message: "Login successful!" });
+//   } catch (error) {
+//     console.error("Login Error:", error);
+//     res.status(500).json({ message: "Something went wrong. Please try again." });
+//   }
+// });
+
+// module.exports = router;
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
@@ -77,13 +110,18 @@ router.post("/login", async (req, res) => {
 
     // 2. Compare entered password with hashed password
     const isMatch = await bcrypt.compare(password, user.password);
-     console.log("🔍 Password match:", isMatch); 
+    console.log("🔍 Password match:", isMatch);
+
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password." });
     }
 
-    // ✅ Success
-    res.status(200).json({ message: "Login successful!" });
+    // ✅ Success - include token & username
+    res.status(200).json({
+      message: "Login successful!",
+      token: "dummy-token-123", // Replace with JWT later if needed
+      username: user.email.split("@")[0], // Use full username if stored
+      });
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({ message: "Something went wrong. Please try again." });
